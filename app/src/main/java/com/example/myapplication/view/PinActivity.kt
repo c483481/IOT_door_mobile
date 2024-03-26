@@ -8,6 +8,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityPinBinding
 import com.example.myapplication.listener.PinListener
+import com.example.myapplication.utils.LoginUtils
+import com.example.myapplication.utils.show
+import com.example.myapplication.utils.toast
 import com.example.myapplication.view_model.ActivityPinModel
 
 class PinActivity : AppCompatActivity(), PinListener {
@@ -18,11 +21,16 @@ class PinActivity : AppCompatActivity(), PinListener {
         setContentView(binding.root)
 
         val model = ViewModelProvider(this)[ActivityPinModel::class.java]
+        val loginUtils = LoginUtils(this)
 
         model.pinListener = this
+        model.loginUtils = loginUtils
 
         binding.model = model
 
+        binding.confirmPin.setOnClickListener {
+            model.checkPin(binding.pin.value)
+        }
     }
 
     override fun backToMain() {
@@ -35,5 +43,11 @@ class PinActivity : AppCompatActivity(), PinListener {
         finish()
     }
 
+    override fun goToHome() {
+        toast("berhasil masuk")
+    }
 
+    override fun giveWarning() {
+        binding.wrongWarning.show()
+    }
 }
