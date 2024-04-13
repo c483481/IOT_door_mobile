@@ -6,7 +6,7 @@ import io.socket.client.Socket
 import org.json.JSONObject
 
 class SocketUtils {
-    private val socket: Socket = IO.socket("http://10.0.2.2:3000")
+    private val socket: Socket = IO.socket("https://server.smartlock.icu")
 
     fun connect() {
         socket.connect()
