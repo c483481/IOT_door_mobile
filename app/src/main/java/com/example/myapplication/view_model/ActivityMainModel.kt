@@ -10,4 +10,8 @@ class ActivityMainModel: ViewModel() {
     fun onClickPin(view: View) {
         mainListener.changeToPinSelect()
     }
+
+    fun onClickFingerprint(view: View) {
+        mainListener.fingerPrintAuth()
+    }
 }

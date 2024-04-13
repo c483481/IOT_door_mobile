@@ -44,7 +44,9 @@ class PinActivity : AppCompatActivity(), PinListener {
     }
 
     override fun goToHome() {
-        toast("berhasil masuk")
+        toast("authentication success")
+        startActivity(Intent(this, HomeActivity::class.java))
+        finish()
     }
 
     override fun giveWarning() {

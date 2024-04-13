@@ -55,4 +55,9 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     implementation("com.github.GoodieBag:Pinview:v1.5")
+
+    implementation("androidx.biometric:biometric-ktx:1.2.0-alpha05")
+
+    // socket io
+    implementation("io.socket:socket.io-client:2.0.0")
 }
