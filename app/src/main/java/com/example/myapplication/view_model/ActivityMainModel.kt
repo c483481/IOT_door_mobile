@@ -14,4 +14,8 @@ class ActivityMainModel: ViewModel() {
     fun onClickFingerprint(view: View) {
         mainListener.fingerPrintAuth()
     }
+
+    fun pengenalanWajah(view: View) {
+        mainListener.imageAuth()
+    }
 }

@@ -50,6 +50,10 @@ class MainActivity : AppCompatActivity(), MainListener {
                 }
             })
 
+        if(intent.hasExtra("message")) {
+            toast(intent.getStringExtra("message").toString())
+        }
+
         promptInfo = BiometricPrompt.PromptInfo.Builder()
             .setTitle("Fingerprint Authentication")
             .setSubtitle("Log in using your biometric credential")
@@ -69,5 +73,10 @@ class MainActivity : AppCompatActivity(), MainListener {
 
     override fun fingerPrintAuth() {
         biometricPrompt.authenticate(promptInfo)
+    }
+
+    override fun imageAuth() {
+        startActivity(Intent(this, CameraActivity::class.java))
+        finish()
     }
 }
